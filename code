@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leadership Portfolio — Rajan Iyer · March 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #F9F8F5;
+    color: #1A1A1A;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+  }
+
+  .port {
+    max-width: 720px;
+    margin: 0 auto;
+    background: #FFFFFF;
+    border: 1px solid #E8E6E0;
+    border-radius: 12px;
+    padding: 2.5rem 3rem;
+  }
+
+  /* Header */
+  .doc-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: #888;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+  .doc-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 36px;
+    color: #1A1A1A;
+    line-height: 1.1;
+    margin-bottom: 6px;
+  }
+  .doc-role {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 1.25rem;
+  }
+  .doc-meta {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    padding-bottom: 1.75rem;
+    border-bottom: 1px solid #E8E6E0;
+  }
+  .doc-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: #888;
+  }
+  .uid-pill {
+    font-size: 11px;
+    font-family: 'Courier New', monospace;
+    background: #F3F2EE;
+    border: 1px solid #E8E6E0;
+    border-radius: 4px;
+    padding: 2px 8px;
+    color: #555;
+    letter-spacing: 0.04em;
+  }
+
+  /* Signal band */
+  .signal-band {
+    padding: 1.75rem 0;
+    border-bottom: 1px solid #E8E6E0;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .signal-bar {
+    width: 3px;
+    background: #C9A84C;
+    flex-shrink: 0;
+    align-self: stretch;
+    min-height: 52px;
+    border-radius: 0;
+  }
+  .signal-verdict {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    color: #1A1A1A;
+    line-height: 1.45;
+  }
+  .signal-sub {
+    font-size: 13px;
+    color: #777;
+    margin-top: 8px;
+  }
+  .pace-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.05em;
+    background: #FFF3CD;
+    color: #7A5C00;
+    border-radius: 4px;
+    padding: 2px 8px;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+
+  /* Sections */
+  .section {
+    padding: 1.75rem 0;
+    border-bottom: 1px solid #E8E6E0;
+  }
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: #999;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    color: #1A1A1A;
+    margin-bottom: 1rem;
+  }
+  .narrative {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #2A2A2A;
+    margin-bottom: 1.25rem;
+  }
+
+  /* Stat cards */
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 12px;
+    margin-bottom: 1.25rem;
+  }
+  .stat-card {
+    background: #F7F6F2;
+    border-radius: 8px;
+    padding: 1rem;
+  }
+  .stat-num {
+    font-size: 30px;
+    font-weight: 500;
+    color: #1A1A1A;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-label {
+    font-size: 12px;
+    color: #555;
+  }
+  .stat-sub {
+    font-size: 11px;
+    color: #999;
+    margin-top: 2px;
+  }
+
+  /* Expand button */
+  .expand-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: #555;
+    background: none;
+    border: 1px solid #DDD;
+    border-radius: 8px;
+    padding: 6px 14px;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    font-family: 'Inter', sans-serif;
+    transition: background 0.15s;
+  }
+  .expand-btn:hover { background: #F7F6F2; }
+
+  .collapse-content {
+    margin-top: 1rem;
+    display: none;
+  }
+  .collapse-content.open { display: block; }
+
+  /* IP list */
+  .ip-list { list-style: none; }
+  .ip-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 0;
+    border-top: 1px solid #F0EFE9;
+  }
+  .ip-item:first-child { border-top: none; }
+  .ip-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #C9A84C;
+    flex-shrink: 0;
+    margin-top: 6px;
+  }
+  .ip-text { font-size: 13px; color: #2A2A2A; line-height: 1.5; }
+  .ip-date { font-size: 11px; color: #999; margin-top: 2px; }
+
+  /* Axis bars */
+  .axis-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 0.75rem;
+  }
+  .axis-row { display: flex; flex-direction: column; gap: 5px; }
+  .axis-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .axis-name { font-size: 13px; color: #1A1A1A; font-weight: 500; }
+  .axis-score { font-size: 13px; color: #777; }
+  .axis-track {
+    height: 7px;
+    background: #F0EFE9;
+    border-radius: 4px;
+    position: relative;
+    overflow: visible;
+  }
+  .axis-fill {
+    height: 100%;
+    border-radius: 4px;
+  }
+  .axis-fill.above { background: #2D9A6B; }
+  .axis-fill.below { background: #C9A84C; }
+  .threshold-line {
+    position: absolute;
+    top: -5px;
+    width: 2px;
+    height: 17px;
+    background: #999;
+    opacity: 0.5;
+  }
+  .threshold-label {
+    position: absolute;
+    top: -20px;
+    font-size: 10px;
+    color: #999;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-family: 'Inter', sans-serif;
+  }
+  .axis-note {
+    font-size: 11px;
+    color: #999;
+    margin-top: 6px;
+  }
+
+  /* KPI table */
+  .kpi-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin-top: 0.75rem;
+  }
+  .kpi-table th {
+    font-size: 11px;
+    font-weight: 500;
+    color: #999;
+    text-align: left;
+    padding: 0 0 8px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    border-bottom: 1px solid #E8E6E0;
+  }
+  .kpi-table td {
+    padding: 10px 0;
+    border-bottom: 1px solid #F0EFE9;
+    color: #2A2A2A;
+    vertical-align: middle;
+  }
+  .kpi-table tr:last-child td { border-bottom: none; }
+  .status-pill {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    border-radius: 4px;
+    padding: 2px 8px;
+  }
+  .pill-hit { background: #D4EDDA; color: #1A6B35; }
+  .pill-miss { background: #FCE8E6; color: #8B2020; }
+  .pill-partial { background: #FFF3CD; color: #7A5C00; }
+
+  /* Constraint section */
+  .constraint-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 1rem 0;
+  }
+  .c-card {
+    background: #F7F6F2;
+    border-radius: 8px;
+    padding: 14px;
+    text-align: center;
+  }
+  .c-num { font-size: 26px; font-weight: 500; color: #1A1A1A; }
+  .c-label { font-size: 11px; color: #777; margin-top: 3px; }
+  .resolution-bar-track {
+    height: 8px;
+    background: #F0EFE9;
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 1rem 0 4px;
+  }
+  .resolution-bar-fill {
+    height: 100%;
+    background: #2D9A6B;
+    border-radius: 4px;
+  }
+  .resolution-label { font-size: 12px; color: #777; }
+
+  /* Trajectory */
+  .traj-section {
+    padding: 1.75rem 0 0;
+  }
+  .runway {
+    position: relative;
+    height: 70px;
+    margin: 1.75rem 0 0.5rem;
+  }
+  .runway-track {
+    position: absolute;
+    top: 32px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #E8E6E0;
+  }
+  .runway-progress {
+    position: absolute;
+    top: 32px;
+    left: 0;
+    width: 38%;
+    height: 2px;
+    background: #C9A84C;
+  }
+  .runway-nodes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+  }
+  .rnode {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+  .rnode-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid #FFF;
+    margin-top: 26px;
+  }
+  .rnode-dot.past { background: #2D9A6B; }
+  .rnode-dot.current {
+    background: #C9A84C;
+    width: 16px;
+    height: 16px;
+    margin-top: 24px;
+  }
+  .rnode-dot.future {
+    background: #E8E6E0;
+    border-color: #CCC;
+  }
+  .rnode-label {
+    font-size: 12px;
+    color: #555;
+    font-weight: 500;
+    margin-top: 4px;
+  }
+  .rnode-date { font-size: 10px; color: #999; }
+  .traj-next {
+    margin-top: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    background: #F7F6F2;
+    border-radius: 8px;
+  }
+  .traj-next-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #FFF3CD;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 18px;
+  }
+  .traj-next-text { font-size: 14px; color: #1A1A1A; font-weight: 500; }
+  .traj-next-sub { font-size: 12px; color: #777; margin-top: 3px; }
+
+  /* Footer */
+  .doc-footer {
+    padding: 1.5rem 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 0.5rem;
+    border-top: 1px solid #E8E6E0;
+  }
+  .footer-uid { font-size: 11px; color: #AAA; font-family: 'Courier New', monospace; }
+  .footer-note { font-size: 11px; color: #AAA; }
+
+  @media (max-width: 600px) {
+    .port { padding: 1.5rem 1.25rem; }
+    .doc-name { font-size: 28px; }
+    .signal-verdict { font-size: 18px; }
+    .constraint-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+</style>
+</head>
+<body>
+<div class="port">
+
+  <!-- Document Header -->
+  <div class="doc-eyebrow">DeepThought · Leadership Portfolio · March 2026</div>
+  <div class="doc-name">Rajan Iyer</div>
+  <div class="doc-role">Production Planning Lead · Senior Contributor (V2) · Pharma Operations Program</div>
+  <div class="doc-meta">
+    <div class="doc-meta-item">📅 Mar 1 – Mar 31, 2026</div>
+    <div class="doc-meta-item">🔑 <span class="uid-pill">DT-2026-03-RIY-004</span></div>
+  </div>
+
+  <!-- Signal Band -->
+  <div class="signal-band">
+    <div class="signal-bar"></div>
+    <div>
+      <div class="signal-verdict">
+        Rajan, this was a solid month. You shipped 78% of your planned work and grew in 4 of 5 areas.
+        <span class="pace-tag">On track</span>
+      </div>
+      <div class="signal-sub">Composite score: 74 / 100 · Current level: V2 · Period: March 2026</div>
+    </div>
+  </div>
+
+  <!-- Section 2: Contribution Highlights -->
+  <div class="section">
+    <div class="section-label">What you shipped</div>
+    <div class="section-title">Contribution highlights</div>
+    <div class="narrative">
+      March was a strong delivery month. You completed 42 of 54 assigned deliverables — a 78% completion rate — with 8 items pending review and 4 still in progress. Your original work stood out: 14 knowledge contributions across assessment frameworks and process documentation, all verified by your TPM. The quality of your contributions this month — particularly the rubric engine and curriculum mapping work — reflects work you'll be able to point to for years.
+    </div>
+    <div class="stat-row">
+      <div class="stat-card">
+        <div class="stat-num">42</div>
+        <div class="stat-label">Deliverables shipped</div>
+        <div class="stat-sub">of 54 assigned</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">14</div>
+        <div class="stat-label">Knowledge contributions</div>
+        <div class="stat-sub">all verified</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">8</div>
+        <div class="stat-label">Awaiting review</div>
+        <div class="stat-sub">pending QA</div>
+      </div>
+    </div>
+    <button class="expand-btn" onclick="toggle(this, 'ip-detail')">
+      ↓ View knowledge contributions
+    </button>
+    <div class="collapse-content" id="ip-detail">
+      <ul class="ip-list">
+        <li class="ip-item"><div class="ip-dot"></div><div><div class="ip-text">Assessment Framework v2 — rubric engine</div><div class="ip-date">Mar 4, 2026</div></div></li>
+        <li class="ip-item"><div class="ip-dot"></div><div><div class="ip-text">Curriculum mapping matrix — cross-subject alignment</div><div class="ip-date">Mar 9, 2026</div></div></li>
+        <li class="ip-item"><div class="ip-dot"></div><div><div class="ip-text">Sprint planning process documentation v1</div><div class="ip-date">Mar 12, 2026</div></div></li>
+        <li class="ip-item"><div class="ip-dot"></div><div><div class="ip-text">Vendor coordination SOP — first draft</div><div class="ip-date">Mar 17, 2026</div></div></li>
+        <li class="ip-item"><div class="ip-dot"></div><div><div class="ip-text">Training session facilitator guide</div><div class="ip-date">Mar 21, 2026</div></div></li>
+        <li class="ip-item"><div class="ip-dot"></div><div><div class="ip-text">Blog post: Lessons from field operations in Tier 2 cities</div><div class="ip-date">Mar 28, 2026</div></div></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Section 3: Capability Growth -->
+  <div class="section">
+    <div class="section-label">How you're growing</div>
+    <div class="section-title">Capability growth</div>
+    <div class="narrative">
+      Your capability profile is moving in the right direction. Four of five areas are above the threshold for your next level — delivery, knowledge creation, process adoption, and engagement are all in strong shape. Framework application is the one area to watch: your score (54) sits just below the 60-point threshold, and closing that gap is the clearest lever available to you for V3 eligibility.
+    </div>
+    <div class="axis-list">
+      <div class="axis-row">
+        <div class="axis-meta"><span class="axis-name">Delivery</span><span class="axis-score">82 / 100</span></div>
+        <div class="axis-track">
+          <div class="axis-fill above" style="width:82%"></div>
+          <div class="threshold-line" style="left:60%"><span class="threshold-label">V3 min: 60</span></div>
+        </div>
+      </div>
+      <div class="axis-row">
+        <div class="axis-meta"><span class="axis-name">Knowledge creation</span><span class="axis-score">77 / 100</span></div>
+        <div class="axis-track">
+          <div class="axis-fill above" style="width:77%"></div>
+          <div class="threshold-line" style="left:60%"></div>
+        </div>
+      </div>
+      <div class="axis-row">
+        <div class="axis-meta"><span class="axis-name"r>Process adoption</span><span class="axis-score">71 / 100</span></div>
+        <div class="axis-track">
+          <div class="axis-fill above" style="width:71%"></div>
+          <div class="threshold-line" style="left:60%"></div>
+        </div>
+      </div>
+      <div class="axis-row">
+        <div class="axis-meta"><span class="axis-name">Engagement</span><span class="axis-score">68 / 100</span></div>
+        <div class="axis-track">
+          <div class="axis-fill above" style="width:68%"></div>
+          <div class="threshold-line" style="left:60%"></div>
+        </div>
+      </div>
+      <div class="axis-row">
+        <div class="axis-meta"><span class="axis-name">Framework application</span><span class="axis-score">54 / 100</span></div>
+        <div class="axis-track">
+          <div class="axis-fill below" style="width:54%"></div>
+          <div class="threshold-line" style="left:60%"></div>
+        </div>
+      </div>
+    </div>
+    <div class="axis-note">Vertical line marks the V3 eligibility threshold (60 points per axis)</div>
+  </div>
+
+  <!-- Section 4: KPI Impact -->
+  <div class="section">
+    <div class="section-label">Did you hit your targets?</div>
+    <div class="section-title">KPI impact</div>
+    <div class="narrative">
+      Of the 5 shared program targets you committed to this month, you hit 3 and missed 2. The missed targets — schools visited and budget utilization — were both flagged as blocker-affected in your monthly report. Your verified commit rate was 80%, meaning 4 of 5 entries were confirmed by your TPM against official numbers.
+    </div>
+    <table class="kpi-table">
+      <thead>
+        <tr><th>Target</th><th>Yours</th><th>Goal</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Schools visited</td><td>12</td><td>20</td><td><span class="status-pill pill-miss">Missed</span></td></tr>
+        <tr><td>Training sessions</td><td>8</td><td>8</td><td><span class="status-pill pill-hit">Hit</span></td></tr>
+        <tr><td>Assessment frameworks reviewed</td><td>5</td><td>5</td><td><span class="status-pill pill-hit">Hit</span></td></tr>
+        <tr><td>Vendor meetings conducted</td><td>3</td><td>3</td><td><span class="status-pill pill-hit">Hit</span></td></tr>
+        <tr><td>Budget utilization</td><td>61%</td><td>80%</td><td><span class="status-pill pill-partial">Partial</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Section 5: Constraint Patterns -->
+  <div class="section">
+    <div class="section-label">What you navigated</div>
+    <div class="section-title">Blockers &amp; constraints</div>
+    <div class="narrative">
+      You raised 7 blockers this month — a sign that you're surfacing problems rather than working around them quietly. 5 of those 7 are now resolved (a 71% resolution rate). The two open blockers — both budget-related — are pending approval from the HOD and are tracked in the Event Loop. No recurring patterns flagged this month.
+    </div>
+    <div class="constraint-grid">
+      <div class="c-card"><div class="c-num">7</div><div class="c-label">Blockers raised</div></div>
+      <div class="c-card"><div class="c-num">5</div><div class="c-label">Resolved</div></div>
+      <div class="c-card"><div class="c-num">2</div><div class="c-label">Still open</div></div>
+    </div>
+    <div class="resolution-bar-track"><div class="resolution-bar-fill" style="width:71%"></div></div>
+    <div class="resolution-label">71% resolved this month</div>
+    <button class="expand-btn" onclick="toggle(this, 'constraint-detail')" style="margin-top:0.75rem">
+      ↓ Blocker breakdown by type
+    </button>
+    <div class="collapse-content" id="constraint-detail">
+      <table class="kpi-table" style="margin-top:0.75rem">
+        <thead><tr><th>Type</th><th>Count</th></tr></thead>
+        <tbody>
+          <tr><td>Budget</td><td>3</td></tr>
+          <tr><td>Internal support</td><td>2</td></tr>
+          <tr><td>Talent / staffing</td><td>1</td></tr>
+          <tr><td>Permissions</td><td>1</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Section 6: Career Trajectory -->
+  <div class="traj-section">
+    <div class="section-label">Where you're headed</div>
+    <div class="section-title">Career trajectory</div>
+    <div class="narrative">
+      You're on track against your planned career trajectory. At your current pace, you're projected to reach V3 (Program Lead) by September 2026 — one month ahead of the original plan. The single axis holding you back from V3 eligibility today is framework application; closing that gap to 60 points would clear the last threshold.
+    </div>
+    <div class="runway">
+      <div class="runway-track"></div>
+      <div class="runway-progress"></div>
+      <div class="runway-nodes">
+        <div class="rnode">
+          <div class="rnode-dot past"></div>
+          <div class="rnode-label">V1</div>
+          <div class="rnode-date">Jan 2025</div>
+        </div>
+        <div class="rnode">
+          <div class="rnode-dot current"></div>
+          <div class="rnode-label">V2 ←</div>
+          <div class="rnode-date">Now</div>
+        </div>
+        <div class="rnode">
+          <div class="rnode-dot future"></div>
+          <div class="rnode-label">V3</div>
+          <div class="rnode-date">Sep 2026</div>
+        </div>
+        <div class="rnode">
+          <div class="rnode-dot future"></div>
+          <div class="rnode-label">V4</div>
+          <div class="rnode-date">2029</div>
+        </div>
+        <div class="rnode">
+          <div class="rnode-dot future"></div>
+          <div class="rnode-label">V5</div>
+          <div class="rnode-date">2033</div>
+        </div>
+      </div>
+    </div>
+    <div class="traj-next">
+      <div class="traj-next-icon">↗</div>
+      <div>
+        <div class="traj-next-text">Next milestone: Program Lead (V3)</div>
+        <div class="traj-next-sub">Projected eligibility: September 2026 · One gap remaining: framework application (54 → 60)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="doc-footer">
+    <div class="footer-uid">Portfolio ID: DT-2026-03-RIY-004 · Generated: Apr 1, 2026</div>
+    <div class="footer-note">This document follows Rajan Iyer · Issued by DeepThought PDGMS</div>
+  </div>
+
+</div>
+
+<script>
+  function toggle(btn, id) {
+    const el = document.getElementById(id);
+    const open = el.classList.toggle('open');
+    if (id === 'ip-detail') {
+      btn.textContent = open ? '↑ Hide knowledge contributions' : '↓ View knowledge contributions';
+    } else {
+      btn.textContent = open ? '↑ Hide breakdown' : '↓ Blocker breakdown by type';
+    }
+  }
+</script>
+
+</body>
+</html>
